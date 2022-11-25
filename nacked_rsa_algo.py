@@ -55,7 +55,6 @@ class RSA:
     def decode(cls, *, message: int, p_q: list) -> int:
         if private_key := cls.__gen_keys(*p_q)[-1]:
             d, mod = private_key
-            print(message ** d)
             return (message ** d) % mod
         else:
             raise ValueError('[!] Private key is empty!')
